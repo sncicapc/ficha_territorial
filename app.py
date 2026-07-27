@@ -1628,6 +1628,9 @@ if nav == "\U0001f5fa\ufe0f Ficha Territorial":
                 .apply(format_cop)
             )
         cols_cc_show = [c for c in COLS_CC if c in colcol_view.columns]
+        dedup_cols = [c for c in ["CODIGO", "ETAPA"] if c in colcol_view.columns]
+        if dedup_cols:
+            colcol_view = colcol_view.drop_duplicates(subset=dedup_cols)
         st.dataframe(colcol_view[cols_cc_show], use_container_width=True, hide_index=True)
     with p2:
         st.markdown("**Contrapartidas**")
@@ -1867,6 +1870,9 @@ elif nav == "\U0001f3db\ufe0f Ficha Sectorial":
                 pd.to_numeric(colcol_s_disp["PRESUPUESTO ESTIMADO APC COLOMBIA"], errors="coerce")
                 .apply(format_cop)
             )
+        dedup_cols_s = [c for c in ["CODIGO", "ETAPA"] if c in colcol_s_disp.columns]
+        if dedup_cols_s:
+            colcol_s_disp = colcol_s_disp.drop_duplicates(subset=dedup_cols_s)
         st.dataframe(colcol_s_disp, use_container_width=True, hide_index=True)
 
     # ---- Proyectos AOD del sector ----
