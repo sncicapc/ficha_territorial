@@ -1,6 +1,6 @@
-streamlit
-pandas
-openpyxl
-altair
-reportlab
-plotly
+streamlit==1.64.0
+pandas==3.0.6
+openpyxl==3.1.5
+altair==6.3.0
+reportlab==5.0.1
+plotly==7.1.0

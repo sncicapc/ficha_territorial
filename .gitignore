@@ -1,0 +1,10 @@
+# Archivos temporales
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+~$*
+
+# Material interno de trabajo (no se publica)
+revision/
+respaldos/
